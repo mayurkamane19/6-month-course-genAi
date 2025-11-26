@@ -1,0 +1,2 @@
+PatientID,Name,RoomCharge,DoctorFee,MedicineFee,Total,BilledOn,BillFile
+101,RAhul Sharma,101,100,100.0,301.0,2025-11-26,Bill_101_20251126153513.pdf

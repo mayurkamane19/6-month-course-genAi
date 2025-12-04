@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BMW Showroom — FIXED JUPYTER VERSION</title>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<style>
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#ffffff;
+    color:#111;
+    transition:0.3s;
+  }
+
+  /* HERO SECTION with static background */
+  .hero {
+    height:300px;
+    background:url('https://cdn.pixabay.com/photo/2017/03/27/14/56/bmw-2173982_1280.jpg');
+    background-size:cover;
+    background-position:center;
+    filter:brightness(80%);
+    border-radius:10px;
+    position:relative;
+    margin:20px;
+  }
+  .hero h1 {
+    position:absolute;
+    bottom:30px;
+    left:30px;
+    margin:0;
+    color:white;
+    font-size:40px;
+    text-shadow:0 4px 18px rgba(0,0,0,0.7);
+  }
+
+  /* Slider */
+  .slider {
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    padding:20px;
+  }
+  .slider img {
+    height:140px;
+    border-radius:10px;
+  }
+
+  /* Car Grid */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px;
+    padding:20px;
+  }
+  .card {
+    background:#f2f4f7;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.15);
+  }
+  .card img {
+    width:100%;
+    border-radius:10px;
+  }
+  .card h3 { margin:10px 0 4px; }
+
+  /* Booking Modal */
+  .modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    align-items:center;
+    justify-content:center;
+    z-index:999;
+  }
+  .modal.open { display:flex; }
+  .box {
+    background:white;
+    padding:20px;
+    width:350px;
+    border-radius:10px;
+  }
+  input, select {
+    width:100%;
+    padding:8px;
+    margin-bottom:10px;
+  }
+  .btn {
+    background:#007bff;
+    color:white;
+    padding:8px 12px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <h1>BMW Showroom</h1>
+</div>
+
+<!-- Slider -->
+<div class="slider">
+  <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/bmw-1957031_1280.jpg">
+  <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/bmw-2173982_1280.jpg">
+  <img src="https://cdn.pixabay.com/photo/2018/03/01/09/33/bmw-3189930_1280.jpg">
+  <img src="https://cdn.pixabay.com/photo/2020/05/09/09/37/bmw-5149407_1280.jpg">
+</div>
+
+<!-- Grid -->
+<h2 style="padding-left:20px;">Models</h2>
+<div class="grid">
+
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/bmw-1957031_1280.jpg">
+    <h3>BMW M3</h3>
+    <p>473 HP · $72,000</p>
+    <button class="btn bookBtn">Book Test Drive</button>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2016/11/22/19/25/bmw-1854737_1280.jpg">
+    <h3>BMW M4</h3>
+    <p>503 HP · $75,000</p>
+    <button class="btn bookBtn">Book Test Drive</button>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2020/05/09/09/37/bmw-5149407_1280.jpg">
+    <h3>BMW i8</h3>
+    <p>Hybrid · $140,000</p>
+    <button class="btn bookBtn">Book Test Drive</button>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2016/11/21/14/50/auto-1844507_1280.jpg">
+    <h3>BMW X5</h3>
+    <p>Luxury SUV · $85,000</p>
+    <button class="btn bookBtn">Book Test Drive</button>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="box">
+    <h3>Book Test Drive</h3>
+    <input id="name" placeholder="Your Name">
+    <input id="phone" placeholder="Phone Number">
+    <select id="model">
+      <option>M3</option>
+      <option>M4</option>
+      <option>i8</option>
+      <option>X5</option>
+    </select>
+    <input type="date" id="date">
+    <button class="btn" id="saveBooking">Save</button>
+    <button class="btn" id="closeModal" style="background:#666;margin-top:10px;">Close</button>
+  </div>
+</div>
+
+<script>
+// Booking Modal
+const modal = document.getElementById("modal");
+document.querySelectorAll(".bookBtn").forEach(btn=>{
+  btn.onclick = ()=> modal.classList.add("open");
+})
+document.getElementById("closeModal").onclick = ()=> modal.classList.remove("open");
+document.getElementById("saveBooking").onclick = ()=> {
+  alert("Booking Saved ✔");
+  modal.classList.remove("open");
+}
+</script>
+
+</body>
+</html>

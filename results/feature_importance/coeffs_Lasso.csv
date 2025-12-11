@@ -1,0 +1,15 @@
+,0
+Horsepower,5179.79282767342
+Age,-3060.2035533718954
+Mileage high_mileage,-1064.2110065341515
+Mileage,-683.0091292092535
+Horsepower^2,552.3250363109753
+Mileage^2,304.96510332290046
+Horsepower Mileage,234.70155353577485
+high_mileage,-151.87668299026853
+Horsepower high_mileage,122.22054925724316
+Age Mileage,95.8072511124965
+Horsepower Age,30.255884328265978
+Age^2,-0.0
+Age high_mileage,0.0
+high_mileage^2,-0.0
